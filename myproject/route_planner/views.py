@@ -39,7 +39,7 @@ def optimizer_view(request):
 
             # --- 3. VALIDAR ENTRADAS ---
             if not start_location or not destinations:
-                context['error'] = "Por favor, proporciona un punto de partida y al menos un destino."
+                context['error'] = "Please provide a starting point and at least one destination."
                 return render(request, 'route_planner/optimizer.html', context)
 
             # --- 4. LLAMAR A LA API DE GOOGLE MAPS ---
@@ -56,7 +56,7 @@ def optimizer_view(request):
                         'duration_text': element['duration']['text']
                     })
                 else:
-                    results.append({'address': f"{destinations[i]} (No encontrada)", 'distance_value': float('inf')})
+                    results.append({'address': f"{destinations[i]} (Not found)", 'distance_value': float('inf')})
 
             sorted_destinations = sorted(results, key=lambda x: x['distance_value'])
 
@@ -72,6 +72,6 @@ def optimizer_view(request):
             context['sorted_destinations'] = sorted_destinations
 
         except Exception as e:
-            context['error'] = f"Ocurrió un error inesperado: {e}"
+            context['error'] = f"An unexpected error occurred: {e}"
 
     return render(request, 'route_planner/optimizer.html', context)
