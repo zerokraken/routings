@@ -1,1 +1,1 @@
-web: gunicorn route_planner.wsgi
+web: gunicorn myproject/myproject.wsgi
