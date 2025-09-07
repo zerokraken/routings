@@ -3,3 +3,4 @@ venv
 __pycache__
 myproject/db.sqlite3
 myproject/.env
+staticfiles
