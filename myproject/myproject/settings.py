@@ -39,6 +39,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['localhost','routings-production.up.railway.app']
 
+CSRF_TRUSTED_ORIGINS = ['https://*', 'https://routings-production.up.railway.app']
+
 
 # Application definition
 
