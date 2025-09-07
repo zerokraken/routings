@@ -1,12 +1,14 @@
-from django.shortcuts import render
-from django.conf import settings
-from googlemaps import Client
 import csv
 import io
 
+import googlemaps
+from django.conf import settings
+from django.shortcuts import render
+
+
 def optimizer_view(request):
     # Inicializa el cliente de Google Maps con la clave de settings.py
-    gmaps = Client(key=settings.GOOGLE_MAPS_API_KEY)
+    gmaps = googlemaps.Client(key=settings.GOOGLE_MAPS_API_KEY)
     context = {}
 
     if request.method == 'POST':
